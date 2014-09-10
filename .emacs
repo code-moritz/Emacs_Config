@@ -18,7 +18,7 @@
  )
 
 ;;Set global tags
-(setq load-path (cons "/home/moritz100001/.emacs.d/elpa/ggtags-0.8.4" load-path))           
+(setq load-path (cons "~/.emacs.d/elpa/ggtags-0.8.4" load-path))           
 (autoload 'gtags-mode "gtags" "" t)
 
     (add-hook 'c-mode-common-hook
@@ -29,8 +29,15 @@
 ;;Set yas
     (add-to-list 'load-path "~/.emacs.d/elpa/yasnippet-0.8.0")
     (require 'yasnippet)
-   (yas-global-mode 1)
+    (yas-global-mode 1)
 
 ;;set company
-(add-to-list 'load-path "/home/moritz100001/.emacs.d/elpa/company-0.8.0")
-(autoload 'company-mode "company" nil t)
+ (add-to-list 'load-path "/home/moritz100001/.emacs.d/elpa/company-0.8.0")
+ (autoload 'company-mode "company" nil t)
+
+;;set table width size
+ (setq-default tab-width 4)
+
+;;set emacs no need backup
+(setq make-backup-files nil)
+
