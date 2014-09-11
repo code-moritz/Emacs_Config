@@ -32,7 +32,7 @@
     (yas-global-mode 1)
 
 ;;set company
- (add-to-list 'load-path "/home/moritz100001/.emacs.d/elpa/company-0.8.0")
+ (add-to-list 'load-path "~/.emacs.d/elpa/company-0.8.0")
  (autoload 'company-mode "company" nil t)
 
 ;;set table width size
