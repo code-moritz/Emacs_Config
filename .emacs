@@ -17,11 +17,21 @@
  ;; If there is more than one, they won't work right.
  )
 
+;;Set a proxy
+;;(setq url-proxy-services '(("http" . "proxycn2.huawei.com:8080")))
+
 ;;Set global tags
 (setq load-path (cons "~/.emacs.d/elpa/ggtags-0.8.4" load-path))           
 (autoload 'gtags-mode "gtags" "" t)
 
-    (add-hook 'c-mode-common-hook
+;;enable gnu global-mode
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+              (ggtags-mode 1))))
+
+
+(add-hook 'c-mode-common-hook
               (lambda ()
                 (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
                   (ggtags-mode 1))))
@@ -40,4 +50,12 @@
 
 ;;set emacs no need backup
 (setq make-backup-files nil)
+
+;;helm
+(add-to-list 'load-path "~/.emacs.d/persional/helm-master")
+(require 'helm-config)
+
+(global-set-key (kbd "C-c h") 'helm-mini)
+(helm-mode 1)
+
 
