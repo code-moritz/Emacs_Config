@@ -1,3 +1,8 @@
+(require 'package)
+(add-to-list 'package-archives
+'("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -58,4 +63,13 @@
 (global-set-key (kbd "C-c h") 'helm-mini)
 (helm-mode 1)
 
+;;set ido-mode
+(ido-mode 1)
+
+;;ibuffer
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;;open sr speedbar automactic
+ (require 'sr-speedbar)
+ (global-set-key (kbd "s-s") 'sr-speedbar-toggle)
 
