@@ -73,3 +73,5 @@
  (require 'sr-speedbar)
  (global-set-key (kbd "s-s") 'sr-speedbar-toggle)
 
+;;set hide or show mode
+(add-hook 'c-mode-common-hook   'hs-minor-mode)
