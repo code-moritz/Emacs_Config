@@ -5,13 +5,32 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(delete-selection-mode nil)
- '(global-linum-mode t))
+ '(global-linum-mode t)
+ '(sr-speedbar-default-width 30))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; Available C style:
+;; “gnu”: The default style for GNU projects
+;; “k&r”: What Kernighan and Ritchie, the authors of C used in their book
+;; “bsd”: What BSD developers use, aka “Allman style” after Eric Allman.
+;; “whitesmith”: Popularized by the examples that came with Whitesmiths C, an
+;; early commercial C compiler.
+;; “stroustrup”: What Stroustrup, the author of C++ used in his book
+;; “ellemtel”: Popular C++ coding standards as defined by “Programming in C++,
+;; Rules and Recommendations,” Erik Nyquist and Mats Henricson, Ellemtel
+;; “linux”: What the Linux developers use for kernel development
+;; “python”: What Python developers use for extension modules
+;; “java”: The default style for java-mode (see below)
+;; “user”: When you want to define your own style
+(setq-default 
+ c-default-style "k&r" ;; set style to "k&r"
+  )
+
 (when (>= emacs-major-version 24)
   (require 'package)
   (add-to-list
@@ -97,7 +116,7 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
-  ;; Package: smartparens
+;; Package: smartparens
 (require 'smartparens-config)
 (show-smartparens-global-mode +1)
 (smartparens-global-mode 1)
@@ -109,5 +128,14 @@
       (sp-local-pair "/*" "*/" :post-handlers '((" | " "SPC")
                                            ("* ||\n[i]" "RET"))))
 
-
+;;auto load hide and show 
+    (load-library "hideshow")
+    (global-set-key (kbd "C-+") 'toggle-hiding)
+    (global-set-key (kbd "C-\\") 'toggle-selective-display)
+    (add-hook 'c-mode-common-hook   'hs-minor-mode)
+    (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
+    (add-hook 'java-mode-hook       'hs-minor-mode)
+    (add-hook 'lisp-mode-hook       'hs-minor-mode)
+    (add-hook 'perl-mode-hook        'hs-minor-mode)
+    (add-hook 'sh-mode-hook         'hs-minor-mode)
 
