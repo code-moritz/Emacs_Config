@@ -30,6 +30,8 @@
 (setq-default 
  c-default-style "k&r" ;; set style to "k&r"
   )
+;;Set a proxy 
+(setq url-proxy-services '(("http" . "proxycn2.xxx.com:8080")))
 
 (when (>= emacs-major-version 24)
   (require 'package)
