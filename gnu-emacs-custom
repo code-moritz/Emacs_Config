@@ -140,4 +140,18 @@
     (add-hook 'lisp-mode-hook       'hs-minor-mode)
     (add-hook 'perl-mode-hook        'hs-minor-mode)
     (add-hook 'sh-mode-hook         'hs-minor-mode)
+    
+;;set helm-projectile
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
+(setq projectile-switch-project-action 'helm-projectile-find-file)
+(setq projectile-switch-project-action 'helm-projectile)
+
+;;set ecb
+(require 'ecb-autoloads)
+(setq ecb-auto-active t)    
+'(ecb-windows-width 0.2)
+
+(global-ede-mode 1)                      ; Enable the Project managementsystem
 
