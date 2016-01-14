@@ -149,9 +149,12 @@
 (setq projectile-switch-project-action 'helm-projectile)
 
 ;;set ecb
-(require 'ecb-autoloads)
-(setq ecb-auto-active t)    
 '(ecb-windows-width 0.2)
+(require 'ecb-autoloads)
+(ecb-activate)  
+(emantic-mode)
+
+
 
 (global-ede-mode 1)                      ; Enable the Project managementsystem
 
