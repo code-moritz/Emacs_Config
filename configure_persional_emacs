@@ -19,3 +19,82 @@ window-numbering.el	跳转到不同的子窗口	switch-window.el
 web-mode	支持各种 HTML 文件	nxml-mode
 magit	玩转git	没有
 git-gutter.el	标记版本控制的diff(支持subversion)
+
+1、安装window-number用于不同窗口跳转：
+(window-number-meta-mode t) 要打開這個變量配置，然後可以用meta+number來快速跳转
+同時在配置文件中要激活
+;;Enable window numbering
+(require 'window-number)
+(window-number-mode 1)
+(setq window-numbering-assign-func
+            (lambda () (when (equal (buffer-name) "*Calculator*") 9)))
+            
+2、semantic是Emacs自建的，但要使用需要手動打开
+'(semantic-mode t)
+
+3、顯示行號也是emacs自建的，不兩手額外安装，但要在配置文件中打開
+'(global-linum-mode t)
+
+4、ido 个人感覺，ido比helm好用，配置簡單，而且也是自带的，但要激活打開
+'(ido-mode (quote both) nil (ido))
+
+5、如果在公司，或者局域綱內，emacs不能只接登录互聯綱，則需要設置代理
+(setq url-proxy-services '(("http" . "proxycn2.domain.com:8080")))
+
+6、对c c++設置格式为K&R
+(setq-default
+ c-default-style "k&r" ;; set style to "k&r"
+  )
+  
+7、加入elpa倉庫，優點是比官方倉庫中東西更多，更新更快
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list
+   'package-archives
+   '("melpa" . "http://melpa.org/packages/")
+   t)
+(package-initialize))
+
+8、不充許産生備份文件，某些時候産生的備份文件，很煩人，*~。禁止掉
+(setq make-backup-files nil)
+
+9、自動補齊，auto-company和company-mode均可，但個人覺得後者更好用
+(add-hook 'after-init-hook 'global-company-mode)
+
+10、對於模版，優選yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
+
+11、imenu好用，但配置略复雑
+
+12、global tage.用這個需要在機器上安装global tage軟件，自已可以在gnu綱站上下載
+(require 'ggtags)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+                      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode
+                      'asm-mode)
+                                    (ggtags-mode 1))))
+
+                                    (define-key ggtags-mode-map (kbd "C-c g
+                                    s") 'ggtags-find-other-symbol)
+                                    (define-key ggtags-mode-map (kbd "C-c g
+                                    h") 'ggtags-view-tag-history)
+                                    (define-key ggtags-mode-map (kbd "C-c g
+                                    r") 'ggtags-find-reference)
+                                    (define-key ggtags-mode-map (kbd "C-c g
+                                    f") 'ggtags-find-file)
+                                    (define-key ggtags-mode-map (kbd "C-c g
+                                    c") 'ggtags-create-tags)
+                                    (define-key ggtags-mode-map (kbd "C-c g
+                                    u") 'ggtags-update-tags)
+
+                                    (define-key ggtags-mode-map (kbd "M-,")
+                                    'pop-tag-mark)
+
+13、在編碼時，自動補齊括号，引號時，會十分方便，在這裡推薦使用smart-parens
+(require 'smartparens-config)
+(smartparens-strict-mode 1)   ;;這裡的設置是强制打自動補齊
+
+
+
+
