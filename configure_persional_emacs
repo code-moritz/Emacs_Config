@@ -1,0 +1,21 @@
+以下是個人配置emacs的一个总結
+本主要依照陳斌的Practical Emacs Guide for C++ developers URL:https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/emacs_cpp_developer_guide-en.org
+結合自已使用整理而成。
+
+首先是安排必要插件：
+即然是使用emacs那么首先應習慣使用emacs默認的組合键，我不贊成對於初學者一開始就照搬別人的快捷键。這样你對默認給合键不了解，換個陌生瓌境立即傻眼了。會使用。
+
+名称	说明	同类插件
+Org	org-mode,全能的笔记工具	没有
+company-mode	自动完成输入,支持各种语言和后端	auto-complete
+expand-region	快捷键选中文本,可将选择区域伸缩	没有
+smex	让输入命令变得飞快	没有
+yasnippet	强大的文本模板输入工具	没有
+flymake	对不同语言做语法检查	flycheck
+helm	自动完成,在其上有插件完成具体功能	ido
+ido	和helm类似,helm和ido可同时用	helm
+smartparens	自动输入需要成对输入的字符如括号	autopair
+window-numbering.el	跳转到不同的子窗口	switch-window.el
+web-mode	支持各种 HTML 文件	nxml-mode
+magit	玩转git	没有
+git-gutter.el	标记版本控制的diff(支持subversion)
