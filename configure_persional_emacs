@@ -94,7 +94,7 @@ git-gutter.el	标记版本控制的diff(支持subversion)
 13、在編碼時，自動補齊括号，引號時，會十分方便，在這裡推薦使用smart-parens
 (require 'smartparens-config) ;;使用默認配置
 (require 'smartparens) ;;要求smartparens
-(smartparens-strict-mode 1)   ;;這裡的設置是强制打自動補齊
+(smartparens-global-strict-mode 1)   ;;這裡的設置是强制打自動補齊
 
 
 
