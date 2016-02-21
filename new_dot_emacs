@@ -40,11 +40,14 @@
 ;;Enable company mode
 (add-hook 'after-init-hook 'global-company-mode)
 
+;;Enable window numbering                                               
+(require 'window-number) 
 (require 'ggtags)
 (add-hook 'c-mode-common-hook
         (lambda ()
 	        (when (derived-mode-p 'c-mode 'c++-mode 'java-mode'asm-mode)
 		                    (ggtags-mode 1)
+		                    (hs-minor-mode t)
 		                    (imenu-list-minor-mode 1))))
 
 (global-set-key (kbd "C-i") 'imenu-list-minor-mode)
