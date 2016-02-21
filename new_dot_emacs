@@ -47,6 +47,8 @@
 		                    (ggtags-mode 1)
 		                    (imenu-list-minor-mode 1))))
 
+(global-set-key (kbd "C-i") 'imenu-list-minor-mode)
+
 (define-key ggtags-mode-map (kbd "C-c g s") 'ggtags-find-other-symbol)
 (define-key ggtags-mode-map (kbd "C-c g h") 'ggtags-view-tag-history)
 (define-key ggtags-mode-map (kbd "C-c g r") 'ggtags-find-reference)
