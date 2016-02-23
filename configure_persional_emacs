@@ -96,6 +96,12 @@ git-gutter.el	标记版本控制的diff(支持subversion)
 (require 'smartparens) ;;要求smartparens
 (smartparens-global-strict-mode 1)   ;;這裡的設置是强制打自動補齊
 
+14、在大型工程中，代码分布在不同的目录中，用ido打开，有時不知路径，這時可以用模糊搜索
+find-file-in-project插件，
+然后在配置文件中绑定全局鍵
+(global-set-key (kbd "C-c C-f") 'find-file-in-project)
+
+
 
 
 
