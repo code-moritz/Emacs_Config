@@ -102,6 +102,14 @@ find-file-in-project插件，
 (global-set-key (kbd "C-c C-f") 'find-file-in-project)
 
 
-
+;;自動加载外部改動文件https://www.emacswiki.org/emacs/RevertBuffer
+  (defun revert-all-buffers ()
+    "Refreshes all open buffers from their respective files."
+    (interactive)
+    (dolist (buf (buffer-list))
+      (with-current-buffer buf
+        (when (and (buffer-file-name) (file-exists-p (buffer-file-name)) (not (buffer-modified-p)))
+          (revert-buffer t t t) )))
+    (message "Refreshed open files.") )
 
 
