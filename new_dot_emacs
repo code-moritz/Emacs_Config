@@ -37,6 +37,12 @@
 (setq auto-save-default nil)
 (setq make-backup-files nil)
 
+;;If in emacs x11 mode, set background-color
+(if (eq window-system 'x)
+     (add-to-list 'default-frame-alist '(background-color . "#FFF1E0"))
+     ;;(add-to-list 'default-frame-alist '(foreground-color . "black"))
+)
+
 ;;Enable company mode
 (add-hook 'after-init-hook 'global-company-mode)
 
