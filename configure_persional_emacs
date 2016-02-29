@@ -65,7 +65,7 @@ git-gutter.el	标记版本控制的diff(支持subversion)
 (require 'yasnippet)
 (yas-global-mode 1)
 
-11、imenu好用，但配置略复雑
+11、imenu好用，但配置略复雑， 可以配合imenu-list的imenu-list-minor-mode
 
 12、global tage.用這個需要在機器上安装global tage軟件，自已可以在gnu綱站上下載
 (require 'ggtags)
@@ -102,7 +102,7 @@ find-file-in-project插件，
 (global-set-key (kbd "C-c C-f") 'find-file-in-project)
 
 
-;;自動加载外部改動文件https://www.emacswiki.org/emacs/RevertBuffer
+15、;;自動加载外部改動文件https://www.emacswiki.org/emacs/RevertBuffer
   (defun revert-all-buffers ()
     "Refreshes all open buffers from their respective files."
     (interactive)
@@ -111,5 +111,13 @@ find-file-in-project插件，
         (when (and (buffer-file-name) (file-exists-p (buffer-file-name)) (not (buffer-modified-p)))
           (revert-buffer t t t) )))
     (message "Refreshed open files.") )
+    
+16、設置emacs啟動背景色，在這裡做判断，是因為，在x11和console模式下，顏色顯示有差別。這裡做了特殊處理，如果是x11模式下，就用設置的背景色，否則就用原來的默認颜色
+;;If in emacs x11 mode, set background-color
+(if (eq window-system 'x)
+     (add-to-list 'default-frame-alist '(background-color . "#FFF1E0"))
+     ;;(add-to-list 'default-frame-alist '(foreground-color . "black"))
+)
+
 
 
