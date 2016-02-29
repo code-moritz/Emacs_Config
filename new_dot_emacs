@@ -56,7 +56,7 @@
 		                    (hs-minor-mode t)
 		                    (imenu-list-minor-mode 1))))
 ;;設置全局打开 imenu list minor mode
-(global-set-key (kbd "C-i") 'imenu-list-minor-mode)
+(global-set-key (kbd "C-c i l") 'imenu-list-minor-mode)
 ;;設置全局打開 工程模糊搜索
 (global-set-key (kbd "C-c C-f") 'find-file-in-project)
 
