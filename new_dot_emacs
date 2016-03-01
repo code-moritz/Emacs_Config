@@ -28,7 +28,7 @@
 
 (setq-default 
  c-default-style "k&r" ;; set style to "k&r"
-  )
+ c-basic-offset 4) ;;設置coding风格时，强制設定tab 为4個space
 ;;Set a proxy 
 (setq url-proxy-services '(("http" . "proxycn2.domain.com:8080")))
 
