@@ -1,3 +1,4 @@
+;;設置加載MELPA插件庫
 (when (>= emacs-major-version 24)
   (require 'package)
   (add-to-list
@@ -18,7 +19,7 @@
  '(imenu-auto-rescan t)
  '(imenu-list-focus-after-activation t)
  '(imenu-list-size 0.2)
- '(semantic-mode t)
+ '(semantic-mode t) ;;自動打開semantic語法分析功能
  '(window-number-meta-mode t))
  '(tab-stop-list (quote (4)))
  '(tab-width 4)  
@@ -52,7 +53,9 @@
 
 ;;Enable window numbering                                               
 (require 'window-number) 
+;;Set Hide/Show function
 (require 'hideshow)
+;;Load global 
 (require 'ggtags)
 (add-hook 'c-mode-common-hook
         (lambda ()
