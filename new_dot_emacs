@@ -12,12 +12,16 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(global-linum-mode t)
+ '(global-semantic-idle-scheduler-mode nil)
+ '(global-semantic-stickyfunc-mode t)
  '(ido-mode (quote both) nil (ido))
  '(imenu-auto-rescan t)
  '(imenu-list-focus-after-activation t)
  '(imenu-list-size 0.2)
  '(semantic-mode t)
  '(window-number-meta-mode t))
+ '(tab-stop-list (quote (4)))
+ '(tab-width 4)  
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -48,6 +52,7 @@
 
 ;;Enable window numbering                                               
 (require 'window-number) 
+(require 'hideshow)
 (require 'ggtags)
 (add-hook 'c-mode-common-hook
         (lambda ()
