@@ -19,7 +19,6 @@
  '(imenu-auto-rescan t)
  '(imenu-list-focus-after-activation t)
  '(imenu-list-size 0.2)
- '(semantic-mode t) ;;自動打開semantic語法分析功能
  '(window-number-meta-mode t))
  '(tab-stop-list (quote (4)))
  '(tab-width 4)  
@@ -61,8 +60,8 @@
         (lambda ()
 	        (when (derived-mode-p 'c-mode 'c++-mode 'java-mode'asm-mode)
 		                    (ggtags-mode 1)
-		                    (hs-minor-mode t)
-		                    (imenu-list-minor-mode 1))))
+				    (semantic-mode t)  ;;自動打開semantic語法分析功能
+		                    (hs-minor-mode t))))
 ;;設置全局打开 imenu list minor mode
 (global-set-key (kbd "C-c i l") 'imenu-list-minor-mode)
 ;;設置全局打開 工程模糊搜索
@@ -101,3 +100,10 @@
 	  	(revert-buffer t t t) )))
 (message "Refreshed open files.") )
 
+;;Enable emacs org-mode auto change line
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+
+(setq org-use-sub-superscripts nil ;;don't use `_' for subscript
+      org-export-with-sub-superscripts nil ;; required by org>=8
+                                        ; (org-use-sub-superscripts no longer working for exporting)
+      )
