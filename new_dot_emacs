@@ -107,3 +107,9 @@
       org-export-with-sub-superscripts nil ;; required by org>=8
                                         ; (org-use-sub-superscripts no longer working for exporting)
       )
+
+;; Enable auto-complete c header
+  (add-hook 'c-mode-hook
+	(lambda ()
+              (add-to-list 'ac-sources 'ac-source-c-headers)
+              (add-to-list 'ac-sources 'ac-source-c-header-symbols t)))
