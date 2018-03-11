@@ -1,0 +1,62 @@
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-files (quote ("~/WorkStation/org/liberiay.org")))
+ '(package-selected-packages
+   (quote
+    (ox-ioslide dash ac-cider cider cider-eval-sexp-fu markdown-mode slime org))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+(require 'package) ;; You might already have this line
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+;;add org 
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+
+(package-initialize) ;; You might already have this line
+
+;;Set global linum enable automatic
+(global-linum-mode t)
+
+;; org auto swtich line
+(global-visual-line-mode t)
+
+;;set orgmode todo state log
+(setq org-log-done 'time)
+(setq org-log-done 'note)
+
+;;Rquire slime
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
+(add-to-list 'load-path "~/.emacs.d/elpa/slime-2.19/")
+(require 'slime-autoloads)
+(slime-setup)
+
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;; Replace "sbcl" with the path to your implementation
+(setq inferior-lisp-program "sbcl")
+
+;;set pdflatex path
+(getenv "PATH")
+(setenv "PATH"
+	(concat "/Library/TeX/texbin/" ":"
+		(getenv "PATH")))
+;;set graphviz excute path
+(setenv "PATH"
+	(concat "/usr/local/Cellar/graphviz/2.40.1/bin/" ":"
+		(getenv "PATH")))
+(require 'ox)
+(require 'ox-org)
+
+;;load org-mind
+(load "~/.emacs.d/elpa/org-mind-map/org-mind-map.el")
+;;(require 'org-mind-map)
+
+;;set default screen full 
+(add-to-list 'default-frame-alist '(fullscreen . maximized));
