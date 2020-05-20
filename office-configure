@@ -1,0 +1,19 @@
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(global-linum-mode t)
+ '(ido-mode t nil (ido))
+ '(initial-frame-alist (quote ((fullscreen . maximized))))
+ '(package-selected-packages
+   (quote
+    (ac-slime slime slime-company slime-repl-ansi-color imenus org-ac org-mind-map exwm-edit exwm-firefox-core exwm-firefox-evil exwm-surf exwm-x exwm imenu-list opencc edit-indirect org auto-dictionary flyspell-correct markdown-mode markdown-mode+ markdown-preview-eww markdown-preview-mode w3 graphviz-dot-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+ 
+ 
